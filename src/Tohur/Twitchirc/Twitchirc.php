@@ -400,7 +400,11 @@ class Twitchirc
         }
 
         stream_set_blocking(STDIN, 0);
-        $this->socket = fsockopen($server, 6667);
+        if (isset($this->config['ssl']) && $this->config['ssl'] == true) {
+            $this->socket = fsockopen($server, 6697);
+        } else {
+            $this->socket = fsockopen($server, 6667);
+        }
 
         return (bool) $this->socket;
     }
