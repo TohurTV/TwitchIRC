@@ -94,8 +94,7 @@ reference to what each key value pair is:
 * _realname_: _string_, the IRC "real name" for the bot
 * _nick_: _string_, the IRC nickname for the bot
 * _password_: _string_, _optional_, the password to authencate with from [https://twitchapps.com/tmi/](https://twitchapps.com/tmi/)
-* _channels_: _array_, an array of channels for the bot to join. Can also join channels
-with passwords. For example:
+* _channels_: _array_, an array of channels for the bot to join. For example:
 
     ```php
     'channels' => array(
