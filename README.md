@@ -100,7 +100,7 @@ with passwords. For example:
     ```php
     'channels' => array(
         '#channel1',
-        array('#channel2')
+        '#channel2'
     )
     ```
 
