@@ -1,0 +1,33 @@
+{
+    "name": "tohur/twitchirc",
+    "description": "A Slim-inspired Twitch IRC bot framework",
+    "keywords": ["irc", "bot", "dsl"],
+    "homepage": "https://github.com/TohurTV/TwitchIRC",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Joshua Webb",
+            "email": "tohur@tohur.me",
+            "homepage": "https://tohur.me/"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "monolog/monolog": "1.2*",
+        "symfony/event-dispatcher": "3.4.*"
+    },
+    "require-dev": {
+        "atoum/atoum": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "Tohur\\Twitchirc": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.1.x-dev"
+        }
+    }
+}
