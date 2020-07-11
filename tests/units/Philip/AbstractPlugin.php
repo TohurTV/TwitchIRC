@@ -1,5 +1,5 @@
 <?php
-namespace tests\units\Philip;
+namespace tests\units\Twitchirc;
 
 use atoum;
 
@@ -10,9 +10,9 @@ class AbstractPlugin extends atoum
     public function test__construct()
     {
         $this
-            ->if($bot = new \Philip\Philip())
+            ->if($bot = new \Twitchirc\Twitchirc())
             ->then
-                ->object($object = new \mock\Philip\AbstractPlugin($bot))->isInstanceOf('\\Philip\\AbstractPlugin')
+                ->object($object = new \mock\Twitchirc\AbstractPlugin($bot))->isInstanceOf('\\Twitchirc\\AbstractPlugin')
                 ->object($object->getBot())->isIdenticalTo($bot)
                 ->array($object->getConfig())->isEqualTo(array())
         ;
@@ -21,8 +21,8 @@ class AbstractPlugin extends atoum
     public function testGetEmptyConfig()
     {
         $this
-            ->if($bot = new \Philip\Philip())
-            ->and($object = new \mock\Philip\AbstractPlugin($bot))
+            ->if($bot = new \Twitchirc\Twitchirc())
+            ->and($object = new \mock\Twitchirc\AbstractPlugin($bot))
             ->then
                 ->array($object->getConfig())->isEqualTo(array())
         ;
@@ -31,9 +31,9 @@ class AbstractPlugin extends atoum
     public function testGetConfig()
     {
         $this
-            ->if($bot = new \Philip\Philip())
+            ->if($bot = new \Twitchirc\Twitchirc())
             ->if($config = array(uniqid() => uniqid()))
-            ->and($object = new \mock\Philip\AbstractPlugin($bot, $config))
+            ->and($object = new \mock\Twitchirc\AbstractPlugin($bot, $config))
             ->then
             ->array($object->getConfig())->isEqualTo($config)
         ;

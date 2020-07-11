@@ -1,8 +1,8 @@
 <?php
-namespace tests\units\Philip\IRC;
+namespace tests\units\Twitchirc\IRC;
 
 use atoum;
-use Philip\IRC\Response as TestedClass;
+use Twitchirc\IRC\Response as TestedClass;
 
 require_once __DIR__ . '/../../bootstrap.php';
 

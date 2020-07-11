@@ -1,8 +1,8 @@
 <?php
-namespace tests\units\Philip;
+namespace tests\units\Twitchirc;
 
 use atoum;
-use Philip\EventListener as TestedClass;
+use Twitchirc\EventListener as TestedClass;
 
 require_once __DIR__ . '/../bootstrap.php';
 
@@ -25,9 +25,9 @@ class EventListener extends atoum
             ->and($result = uniqid())
             ->and($callback = function() use($result) { return $result; })
             ->and($this->mockGenerator->shuntParentClassCalls())
-            ->and($request = new \mock\Philip\IRC\Request(uniqid()))
+            ->and($request = new \mock\Twitchirc\IRC\Request(uniqid()))
             ->and($this->mockGenerator->unshuntParentClassCalls())
-            ->and($event = new \mock\Philip\IRC\Event($request))
+            ->and($event = new \mock\Twitchirc\IRC\Event($request))
             ->and($this->calling($request)->getMessage = $message = uniqid())
             ->and($object = new TestedClass($pattern, $callback))
             ->then

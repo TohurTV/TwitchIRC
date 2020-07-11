@@ -1,8 +1,8 @@
 <?php
-namespace tests\units\Philip\IRC;
+namespace tests\units\Twitchirc\IRC;
 
 use atoum;
-use Philip\IRC\Event as TestedClass;
+use Twitchirc\IRC\Event as TestedClass;
 
 require_once __DIR__ . '/../../bootstrap.php';
 
@@ -12,9 +12,9 @@ class Event extends atoum
     {
         $this
             ->if($this->mockGenerator->shuntParentClassCalls())
-            ->and($request = new \mock\Philip\IRC\Request($raw = uniqid()))
+            ->and($request = new \mock\Twitchirc\IRC\Request($raw = uniqid()))
             ->then
-                ->object($object = new TestedClass($request))->isInstanceOf('\\Philip\\IRC\\Event')
+                ->object($object = new TestedClass($request))->isInstanceOf('\\Twitchirc\\IRC\\Event')
                 ->array($object->getMatches())->isEmpty()
                 ->array($object->getResponses())->isEmpty()
         ;
@@ -24,7 +24,7 @@ class Event extends atoum
     {
         $this
             ->if($this->mockGenerator->shuntParentClassCalls())
-            ->and($request = new \mock\Philip\IRC\Request($raw = uniqid()))
+            ->and($request = new \mock\Twitchirc\IRC\Request($raw = uniqid()))
             ->and($object = new TestedClass($request))
             ->and($matches = array(uniqid(), uniqid()))
             ->then
@@ -37,7 +37,7 @@ class Event extends atoum
     {
         $this
             ->if($this->mockGenerator->shuntParentClassCalls())
-            ->and($request = new \mock\Philip\IRC\Request($raw = uniqid()))
+            ->and($request = new \mock\Twitchirc\IRC\Request($raw = uniqid()))
             ->and($object = new TestedClass($request))
             ->and($matches = array(uniqid(), uniqid()))
             ->then
@@ -52,7 +52,7 @@ class Event extends atoum
     {
         $this
             ->if($this->mockGenerator->shuntParentClassCalls())
-            ->and($request = new \mock\Philip\IRC\Request($raw = uniqid()))
+            ->and($request = new \mock\Twitchirc\IRC\Request($raw = uniqid()))
             ->and($object = new TestedClass($request))
             ->then
                 ->object($object->getRequest())->isIdenticalTo($request)
@@ -63,13 +63,13 @@ class Event extends atoum
     {
         $this
             ->if($this->mockGenerator->shuntParentClassCalls())
-            ->and($request = new \mock\Philip\IRC\Request($raw = uniqid()))
-            ->and($response = new \Philip\IRC\Response(uniqid()))
+            ->and($request = new \mock\Twitchirc\IRC\Request($raw = uniqid()))
+            ->and($response = new \Twitchirc\IRC\Response(uniqid()))
             ->and($object = new TestedClass($request))
             ->then
                 ->object($object->addResponse($response))->isIdenticalTo($object)
                 ->array($object->getResponses())->isEqualTo(array($response))
-            ->if($otherResponse = new \Philip\IRC\Response(uniqid()))
+            ->if($otherResponse = new \Twitchirc\IRC\Response(uniqid()))
             ->and($object->addResponse($otherResponse))
             ->then
                 ->array($object->getResponses())->isEqualTo(array($response, $otherResponse))
@@ -80,16 +80,16 @@ class Event extends atoum
     {
         $this
             ->if($this->mockGenerator->shuntParentClassCalls())
-            ->and($request = new \mock\Philip\IRC\Request($raw = uniqid()))
+            ->and($request = new \mock\Twitchirc\IRC\Request($raw = uniqid()))
             ->and($object = new TestedClass($request))
             ->and($matches = array(uniqid(), uniqid()))
             ->then
                 ->array($object->getResponses())->isEmpty()
-            ->if($response = new \Philip\IRC\Response(uniqid()))
+            ->if($response = new \Twitchirc\IRC\Response(uniqid()))
             ->and($object->addResponse($response))
             ->then
                 ->array($object->getResponses())->isEqualTo(array($response))
-            ->if($otherResponse = new \Philip\IRC\Response(uniqid()))
+            ->if($otherResponse = new \Twitchirc\IRC\Response(uniqid()))
             ->and($object->addResponse($otherResponse))
             ->then
                 ->array($object->getResponses())->isEqualTo(array($response, $otherResponse))

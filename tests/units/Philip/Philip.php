@@ -1,19 +1,19 @@
 <?php
-namespace tests\units\Philip;
+namespace tests\units\Twitchirc;
 
 use atoum;
-use Philip\Philip as TestedClass;
+use Twitchirc\Twitchirc as TestedClass;
 
 require_once __DIR__ . '/../bootstrap.php';
 
-class Philip extends atoum
+class Twitchirc extends atoum
 {
     public function test__construct()
     {
         $this
             ->if($object = new TestedClass())
             ->then
-                ->object($object)->isInstanceOf('\\Philip\\Philip')
+                ->object($object)->isInstanceOf('\\Twitchirc\\Twitchirc')
                 ->array($object->getConfig())->isEqualTo(array())
                 ->object($object->getLogger())->isInstanceOf('\\Monolog\\Logger')
             ->if($config = array(uniqid() => uniqid()))
@@ -30,7 +30,7 @@ class Philip extends atoum
             ->and($object = new TestedClass(array(), $dispatcher))
             ->and($pattern = uniqid())
             ->and($callback = function() {})
-            ->and($listener = new \Philip\EventListener($pattern, $callback))
+            ->and($listener = new \Twitchirc\EventListener($pattern, $callback))
             ->then
                 ->object($object->onChannel($pattern, $callback))->isIdenticalTo($object)
                 ->mock($dispatcher)
@@ -45,7 +45,7 @@ class Philip extends atoum
             ->and($object = new TestedClass(array(), $dispatcher))
             ->and($pattern = uniqid())
             ->and($callback = function() {})
-            ->and($listener = new \Philip\EventListener($pattern, $callback))
+            ->and($listener = new \Twitchirc\EventListener($pattern, $callback))
             ->then
                 ->object($object->onPrivateMessage($pattern, $callback))->isIdenticalTo($object)
                 ->mock($dispatcher)
@@ -56,7 +56,7 @@ class Philip extends atoum
     public function testOnMessages()
     {
         $this
-            ->if($object = new \mock\Philip\Philip(array()))
+            ->if($object = new \mock\Twitchirc\Twitchirc(array()))
             ->and($pattern = uniqid())
             ->and($callback = function() {})
             ->then
@@ -74,7 +74,7 @@ class Philip extends atoum
             ->and($object = new TestedClass(array(), $dispatcher))
             ->and($command = uniqid())
             ->and($callback = function() {})
-            ->and($listener = new \Philip\EventListener(null, $callback))
+            ->and($listener = new \Twitchirc\EventListener(null, $callback))
             ->then
                 ->object($object->onServer($command, $callback))->isIdenticalTo($object)
                 ->mock($dispatcher)
@@ -90,7 +90,7 @@ class Philip extends atoum
     public function testOnJoin()
     {
         $this
-            ->if($object = new \mock\Philip\Philip(array()))
+            ->if($object = new \mock\Twitchirc\Twitchirc(array()))
             ->and($callback = function() {})
             ->then
                 ->object($object->onJoin($callback))->isIdenticalTo($object)
@@ -102,7 +102,7 @@ class Philip extends atoum
     public function testOnPart()
     {
         $this
-            ->if($object = new \mock\Philip\Philip(array()))
+            ->if($object = new \mock\Twitchirc\Twitchirc(array()))
             ->and($callback = function() {})
             ->then
                 ->object($object->onPart($callback))->isIdenticalTo($object)
@@ -114,7 +114,7 @@ class Philip extends atoum
     public function testOnError()
     {
         $this
-            ->if($object = new \mock\Philip\Philip(array()))
+            ->if($object = new \mock\Twitchirc\Twitchirc(array()))
             ->and($callback = function() {})
             ->then
                 ->object($object->onError($callback))->isIdenticalTo($object)
@@ -126,7 +126,7 @@ class Philip extends atoum
     public function testOnNotice()
     {
         $this
-            ->if($object = new \mock\Philip\Philip())
+            ->if($object = new \mock\Twitchirc\Twitchirc())
             ->and($callback = function() {})
             ->then
                 ->object($object->onNotice($callback))->isIdenticalTo($object)
@@ -139,7 +139,7 @@ class Philip extends atoum
     {
         $this
             ->if($object = new TestedClass())
-            ->and($plugin = new \mock\Philip\AbstractPlugin($object))
+            ->and($plugin = new \mock\Twitchirc\AbstractPlugin($object))
             ->and($this->calling($plugin)->getName = $name = uniqid())
             ->then
                 ->object($object->loadPlugin($plugin))->isIdenticalTo($object)
@@ -153,9 +153,9 @@ class Philip extends atoum
     {
         $this
             ->if($object = new TestedClass())
-            ->and($plugin = new \mock\Philip\AbstractPlugin($object))
+            ->and($plugin = new \mock\Twitchirc\AbstractPlugin($object))
             ->and($this->calling($plugin)->getName = $name = uniqid())
-            ->and($otherPlugin = new \mock\Philip\AbstractPlugin($object))
+            ->and($otherPlugin = new \mock\Twitchirc\AbstractPlugin($object))
             ->and($this->calling($otherPlugin)->getName = $otherName = uniqid())
             ->then
                 ->object($object->loadPlugins(array($plugin, $otherPlugin)))->isIdenticalTo($object)

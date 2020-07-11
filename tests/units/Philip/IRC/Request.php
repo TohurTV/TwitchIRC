@@ -1,8 +1,8 @@
 <?php
-namespace tests\units\Philip\IRC;
+namespace tests\units\Twitchirc\IRC;
 
 use atoum;
-use Philip\IRC\Request as TestedClass;
+use Twitchirc\IRC\Request as TestedClass;
 
 require_once __DIR__ . '/../../bootstrap.php';
 
@@ -27,7 +27,7 @@ class Request extends atoum
                     ->hasMessage(sprintf('Invalid command: %s', $command))
             ->if($command = ':username!user@host COMMAND #channel param otherParam :Message')
             ->then
-                ->object($object = new TestedClass($command))->isInstanceOf('\\Philip\\IRC\\Request')
+                ->object($object = new TestedClass($command))->isInstanceOf('\\Twitchirc\\IRC\\Request')
                 ->boolean($object->isFromServer())->isEqualTo(false)
                 ->boolean($object->isFromUser())->isEqualTo(true)
                 ->boolean($object->getServer())->isEqualTo(false)
@@ -39,7 +39,7 @@ class Request extends atoum
                 ->string($object->getMessage())->isEqualTo('Message')
             ->if($command = ':server.name COMMAND param otherParam :Message')
             ->then
-                ->object($object = new TestedClass($command))->isInstanceOf('\\Philip\\IRC\\Request')
+                ->object($object = new TestedClass($command))->isInstanceOf('\\Twitchirc\\IRC\\Request')
                 ->boolean($object->isFromServer())->isEqualTo(true)
                 ->boolean($object->isFromUser())->isEqualTo(false)
                 ->boolean($object->getSendingUser())->isEqualTo(false)
@@ -52,11 +52,11 @@ class Request extends atoum
                 ->string($object->getMessage())->isEqualTo('Message')
             ->if($command = ':username!user@host COMMAND #channel :Message')
             ->then
-                ->object($object = new TestedClass($command))->isInstanceOf('\\Philip\\IRC\\Request')
+                ->object($object = new TestedClass($command))->isInstanceOf('\\Twitchirc\\IRC\\Request')
                 ->array($object->getParams())->isEmpty()
             ->if($command = ':server.name COMMAND :Message')
             ->then
-                ->object($object = new TestedClass($command))->isInstanceOf('\\Philip\\IRC\\Request')
+                ->object($object = new TestedClass($command))->isInstanceOf('\\Twitchirc\\IRC\\Request')
                 ->array($object->getParams())->isEmpty()
         ;
     }
