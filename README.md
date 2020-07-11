@@ -9,7 +9,7 @@ Twitchirc is a [Slim](http://slimframework.com/)-inspired framwork for creating 
 Requirements
 ------------
 
- * PHP 5.3.3+
+ * PHP 7.2.5+
  * [Composer](http://getcomposer.org/)
 
 
