@@ -2,14 +2,14 @@
 
 namespace Tohur\Twitchirc\IRC;
 
-use Symfony\Contracts\EventDispatcher\Event as BaseEvent;
+use Symfony\Component\EventDispatcher\Event as BaseEvent;
 
 class Event extends BaseEvent
 {
-    /** @var \Tohur\Bot\Classes\Chat\IRC\Request $request The request object for this event */
+    /** @var \Tohur\Twitchirc\IRC\Request $request The request object for this event */
     private $request;
 
-    /** @var \Tohur\Bot\Classes\Chat\IRC\Response[] Array of responses for the event */
+    /** @var \Tohur\Twitchirc\IRC\Response[] Array of responses for the event */
     private $responses = array();
 
     /** @var array $matches Array of matches for the pattern */

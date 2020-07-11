@@ -2,7 +2,7 @@
 
 namespace Tohur\Twitchirc;
 
-use Symfony\Contracts\EventDispatcher\Event;
+use Symfony\Component\EventDispatcher\Event;
 
 /**
  * A generic handler for all IRC events that pass through Twitchirc.
