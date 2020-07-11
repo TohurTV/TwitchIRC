@@ -14,8 +14,8 @@
     ],
     "require": {
         "php": ">7.2.5",
-        "monolog/monolog": "1.25.*",
-        "symfony/event-dispatcher": "3.4.*"
+        "monolog/monolog": "^1.25.*",
+        "symfony/event-dispatcher": "^3.4.*"
     },
     "require-dev": {
         "atoum/atoum": "dev-master"
