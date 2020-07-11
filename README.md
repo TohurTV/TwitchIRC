@@ -28,7 +28,7 @@ Then create and open a `composer.json` file. Add TitchIRC to the list of require
 ```javascript
 {
     "require": {
-        "tohur/twitchirc": "1.0.*"
+        "tohur/twitchirc": "dev-master"
     }
 }
 ```
