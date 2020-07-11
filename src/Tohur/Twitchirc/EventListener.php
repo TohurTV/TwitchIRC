@@ -76,7 +76,7 @@ class EventListener
      */
     private function getMatches()
     {
-        if (count($this->matches)) {
+        if ( is_array($this->matches) && count($this->matches)) {
             return array_slice($this->matches, 1);
         }
 
